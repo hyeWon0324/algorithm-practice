@@ -45,19 +45,115 @@ int main() {
                 if (ans < temp) ans = temp;
             }
             if (i+1 < n && j+2 < m){
-                // 정사각형 
+                // ㅁ
+                // ㅁㅁㅁ
                 int temp = a[i][j] + a[i+1][j] + a[i+1][j+1] + a[i+1][j+2];
                 if (ans < temp) ans = temp; 
             }
             if (i+2 < n && j+1 < m){
                 // ㄱ자를 왼쪽으로 뒤집은 것. 사각형 왼쪽에 세로로 3줄 
+                // ㅁㅁ
+                // ㅁ
+                // ㅁ
                 int temp = a[i][j] + a[i][j+1] + a[i+1][j] + a[i+2][j];
                 
             }
             if (i+1 < n && j+2 < m){
-                int temp = a[i][j] + a[i+1][j] + a[i+2][j] + a[i+2][j-1];
+                // ㄱ 자  ㅁㅁㅁ
+                //          ㅁ
+                int temp = a[i][j] + a[i][j+1] + a[i][j+2] + a[i+1][j+2];
                 if(ans < temp) ans = temp; 
             }
+            if (i+2 < n && j-1 >= 0){
+                // ㅁ 
+                // ㅁ
+                //ㅁㅁ
+                int temp = a[i][j] + a[i+1][j] + a[i+2][j] + a[i+2][j-1];
+                if (ans < temp) ans = temp; 
+            }
+            if (i-1 >= 0 && j+2 < m){
+                //    ㅁ
+                // ㅁㅁㅁ
+                int temp = a[i][j] + a[i][j+1] + a[i][j+2] + a[i-1][j+2]; 
+                if (ans < temp) ans = temp;
+            }
+            if (i+2 < n && j+1 < m) {
+                // ㅁ
+                // ㅁ
+                // ㅁㅁ
+                int temp = a[i][j] + a[i+1][j] + a[i+2][j] + a[i+2][j+1]; 
+                if (ans < temp) ans = temp; 
+            }
+            if (i+1 < n && j+2 < m){
+                // ㅁㅁㅁ
+                // ㅁ
+                int temp = a[i][j] + a[i][j+1] + a[i][j+2] + a[i+1][j]; 
+                if (ans < temp) ans = temp; 
+            }
+            if (i+2 < n && j+1 < m){
+                // ㅁㅁ
+                //  ㅁ
+                //  ㅁ
+                int temp = a[i][j] + a[i][j+1] + a[i+1][j+1] + a[i+2][j+1];
+                if (ans < temp) ans = temp; 
+            }
+            if (i+1 < n && j+1 < m){
+                // ㅁㅁ
+                // ㅁㅁ
+                int temp = a[i][j] + a[i][j+1] + a[i+1][j] + a[i+1][j+1];
+                if (ans < temp) ans = temp; 
+            }
+            if (i-1 >= 0 && j+2 < m){
+                //  ㅁㅁ
+                // ㅁㅁ
+                int temp = a[i][j] + a[i][j+1] + a[i-1][j+1] + a[i-1][j+2];
+                if (ans < temp) ans = temp; 
+            }
+            if (i+2 < n && j+1 >=0){
+                // ㅁ
+                // ㅁㅁ
+                //  ㅁ
+                int temp = a[i][j] + a[i+1][j] + a[i+1][j+1] + a[i+2][j+1]; 
+                if (ans < temp) ans = temp; 
+            }
+            if (i+1 < n && j+2 < m) {
+                // ㅁ ㅁ 
+                //    ㅁ ㅁ
+                int temp = a[i][j] + a[i][j+1] + a[i+1][j+1] + a[i+1][j+2];
+                if (ans < temp) ans = temp; 
+            }
+            if (i+2 < n && j-1 >= 0) {
+                //  ㅁ  
+                //ㅁ ㅁ
+                //ㅁ
+                int temp = a[i][j] + a[i+1][j] + a[i+1][j-1] + a[i+2][j-1];
+                if (ans < temp) ans = temp; 
+            }
+            if (j+2 < m) {
+
+                int temp = a[i][j] + a[i][j+1] + a[i][j+2];
+                if (i-1 >= 0){
+                    int temp2 = temp + a[i-1][j+1]; 
+                    if (ans < temp2) ans = temp2; 
+                }
+                if (i+1 < n){
+                    int temp2 = temp + a[i+1][j+1] ;
+                    if (ans < temp2) ans = temp2; 
+                }
+            }
+            if (i+2 < n){
+                int temp = a[i][j] + a[i+1][j] + a[i+2][j]; 
+                if (j+1 < m){
+                    int temp2 = temp + a[i+1][j+1]; 
+                    if (ans < temp2) ans = temp2; 
+                }
+                if (j-1 >= 0 ) {
+                    int temp2 = temp + a[i+1][j+1] ;
+                    if (ans < temp2) ans = temp2; 
+                }
+            }
+            cout << ans << '\n';
+            return 0 ;
             /*
             ...
             */
