@@ -20,7 +20,7 @@
 // O(19 * NM) = 19 * 500^2 
 // 19가지 기준 
 // 
-# include <iostream>
+#include <iostream>
 using namespace std; 
 int a[500][500];
 int main() {
@@ -34,36 +34,42 @@ int main() {
     int ans = 0; 
     for (int i=0; i<n; i++){
         for(int j=0; j<m; j++){
+            //1
             if(j+3 < m){ 
                 // ㅅㅏ각형이 4개 가로로 붙어있는것 
                 int temp = a[i][j] + a[i][j+1] + a[i][j+2] + a[i][j+3];
                 if (ans < temp) ans = temp; 
             }
+            //2
             if (i+3 < n) {
                 // 사각형이 4개 수직으로 
                 int temp = a[i][j] + a[i+1][j] + a[i+2][j] + a[i+3][j];
                 if (ans < temp) ans = temp;
             }
+            //3
             if (i+1 < n && j+2 < m){
                 // ㅁ
                 // ㅁㅁㅁ
                 int temp = a[i][j] + a[i+1][j] + a[i+1][j+1] + a[i+1][j+2];
                 if (ans < temp) ans = temp; 
             }
+            //4
             if (i+2 < n && j+1 < m){
                 // ㄱ자를 왼쪽으로 뒤집은 것. 사각형 왼쪽에 세로로 3줄 
                 // ㅁㅁ
                 // ㅁ
                 // ㅁ
                 int temp = a[i][j] + a[i][j+1] + a[i+1][j] + a[i+2][j];
-                
+                if (ans < temp) ans = temp;
             }
+            //5
             if (i+1 < n && j+2 < m){
                 // ㄱ 자  ㅁㅁㅁ
                 //          ㅁ
                 int temp = a[i][j] + a[i][j+1] + a[i][j+2] + a[i+1][j+2];
                 if(ans < temp) ans = temp; 
             }
+            //6
             if (i+2 < n && j-1 >= 0){
                 // ㅁ 
                 // ㅁ
@@ -71,12 +77,14 @@ int main() {
                 int temp = a[i][j] + a[i+1][j] + a[i+2][j] + a[i+2][j-1];
                 if (ans < temp) ans = temp; 
             }
+            //7
             if (i-1 >= 0 && j+2 < m){
                 //    ㅁ
                 // ㅁㅁㅁ
                 int temp = a[i][j] + a[i][j+1] + a[i][j+2] + a[i-1][j+2]; 
                 if (ans < temp) ans = temp;
             }
+            //8
             if (i+2 < n && j+1 < m) {
                 // ㅁ
                 // ㅁ
@@ -84,12 +92,14 @@ int main() {
                 int temp = a[i][j] + a[i+1][j] + a[i+2][j] + a[i+2][j+1]; 
                 if (ans < temp) ans = temp; 
             }
+            //9
             if (i+1 < n && j+2 < m){
                 // ㅁㅁㅁ
                 // ㅁ
                 int temp = a[i][j] + a[i][j+1] + a[i][j+2] + a[i+1][j]; 
                 if (ans < temp) ans = temp; 
             }
+            //10
             if (i+2 < n && j+1 < m){
                 // ㅁㅁ
                 //  ㅁ
@@ -97,19 +107,22 @@ int main() {
                 int temp = a[i][j] + a[i][j+1] + a[i+1][j+1] + a[i+2][j+1];
                 if (ans < temp) ans = temp; 
             }
+            //11
             if (i+1 < n && j+1 < m){
                 // ㅁㅁ
                 // ㅁㅁ
                 int temp = a[i][j] + a[i][j+1] + a[i+1][j] + a[i+1][j+1];
                 if (ans < temp) ans = temp; 
             }
+            //12
             if (i-1 >= 0 && j+2 < m){
                 //  ㅁㅁ
                 // ㅁㅁ
                 int temp = a[i][j] + a[i][j+1] + a[i-1][j+1] + a[i-1][j+2];
                 if (ans < temp) ans = temp; 
             }
-            if (i+2 < n && j+1 >=0){
+            //13
+            if (i+2 < n && j+1 < m){
                 // ㅁ
                 // ㅁㅁ
                 //  ㅁ
@@ -148,18 +161,12 @@ int main() {
                     if (ans < temp2) ans = temp2; 
                 }
                 if (j-1 >= 0 ) {
-                    int temp2 = temp + a[i+1][j+1] ;
+                    int temp2 = temp + a[i+1][j-1] ;
                     if (ans < temp2) ans = temp2; 
                 }
             }
             cout << ans << '\n';
             return 0 ;
-            /*
-            ...
-            */
         }
     }
 }
-
-
-
